@@ -17,21 +17,25 @@ window.SITE = {
   role: "Cloud Engineer",
   headline: "I build and automate cloud infrastructure on AWS.",
   intro:
-    "Computer science grad focused on AWS, infrastructure as code, and automation, with a " +
-    "software development background that means I understand what runs on the infrastructure, too.",
+    "I keep production servers on AWS up to date through automation, and I'm building toward cloud " +
+    "engineering with infrastructure as code, containers, and CI/CD. My software development background " +
+    "means I understand what runs on the infrastructure, too.",
 
   // Paragraphs for the About section
   bio: [
     "I started out building software: a native iOS app, full-stack web apps, and an AI-powered data " +
     "pipeline. Along the way I found the parts I enjoyed most were underneath the code: how it gets " +
     "deployed, how it scales, and how to automate the work so it's repeatable.",
-    "Now I'm focused on cloud engineering: designing on AWS, defining infrastructure in Terraform, " +
-    "containerizing with Docker and Kubernetes, and wiring it all together with CI/CD. " +
-    "My developer background helps me build infrastructure that fits the applications running on it.",
+    "Today I work hands-on in AWS: every week I roll out updates to production servers using automation " +
+    "runbooks, where reliability and repeatability matter more than anything clever.",
+    "Outside of work I'm going deeper: defining infrastructure in Terraform, containerizing with Docker " +
+    "and Kubernetes, and wiring it together with CI/CD. I'm working toward my AWS Cloud Practitioner " +
+    "certification first, with more to follow.",
   ],
 
   // Rows in the About "facts" table. Leave a value empty to hide the row.
   facts: [
+    ["Currently", "Production server updates on AWS"],
     ["Focus", "AWS · IaC · Automation"],
     ["Education", "B.S. Computer Science, SNHU '24"],
     ["Location", ""],
@@ -40,12 +44,12 @@ window.SITE = {
 
   // status: "Earned" or "In progress". Optional: date, link (e.g. Credly badge URL)
   certifications: [
-    { name: "AWS Certified Solutions Architect – Associate", issuer: "Amazon Web Services", status: "In progress", date: "" },
+    { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", status: "In progress", date: "" },
   ],
 
   skills: {
     "AWS":             ["S3 & CloudFront", "Lambda & API Gateway", "DynamoDB", "IAM", "Route 53 & ACM", "EC2 & VPC"],
-    "IaC & CI/CD":     ["Terraform", "GitHub Actions", "OIDC federation", "Git"],
+    "IaC & CI/CD":     ["Terraform", "Automation runbooks", "GitHub Actions", "OIDC federation", "Git"],
     "Containers & OS": ["Docker", "Kubernetes", "Linux", "Bash & Python scripting"],
     "Development":     ["Python", "JavaScript", "Java & C++", "SQL & NoSQL"],
   },
