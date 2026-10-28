@@ -1,136 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Zhuff99 Github Website</title>
-<link href="css/styles.css" rel="stylesheet" type="text/css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zach Huff — Software Developer</title>
+<meta name="description" content="Zach Huff is a software developer building iOS apps, AI-powered tools, and full-stack web applications.">
+<meta property="og:title" content="Zach Huff — Software Developer">
+<meta property="og:description" content="iOS apps, AI-powered tools, and full-stack web projects.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232f5d50'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='white'>Z</text></svg>">
+<script>
+  // set theme before paint to avoid a flash
+  (function(){try{var t=localStorage.getItem('theme');
+    if(t||matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.setAttribute('data-theme',t||'dark');}catch(e){}})();
+</script>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
-	<img src="Untitled_Artwork.png" alt="ZHUFF99 logo" class="logo">
-	<nav>
-		<ul>
-			<li> <a href="">Home</a> </li>
-			<li> <a href="">About</a> </li>
-			<li> <a href="">Contact</a> </li>
-		</ul>
-	</nav>
-</header>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" id="brand">Zach&nbsp;<em>Huff</em></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#work">Work</a><a href="#more">GitHub</a><a href="#contact">Contact</a>
+      </div>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
 
-<section class="home-hero">
-	<h1 class="title">This is where a moto
-		<span> or similar will go. </span>
-	 </h1>
-	 <a href="" class="button button-accent"> See my work. </a>
-</section>
+<main class="wrap" id="top">
+  <header class="hero">
+    <div class="reveal">
+      <div class="eyebrow" id="role"></div>
+      <h1 id="headline"></h1>
+      <p class="lead" id="intro"></p>
+      <div class="cta">
+        <a href="#work" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-line">Get in touch →</a>
+        <a href="#" class="btn btn-line" id="resumeBtn" hidden>Résumé</a>
+      </div>
+    </div>
+    <img class="avatar reveal" id="avatar" alt="Photo of Zach Huff">
+  </header>
 
+  <section id="about" class="reveal">
+    <div class="label">About</div>
+    <div class="about-grid">
+      <div><h2>A bit about me.</h2><div id="bio"></div></div>
+      <div id="facts"></div>
+    </div>
+  </section>
 
-<section class="home-about">
-<div class="home-about-textbox">
-	<h1>A little about me</h1>
-	<p>first paragraph</p>
-	<p> <strong>with strong tag </strong>
-		second paragraph </p>
-</div>
-</section>
+  <section id="skills" class="reveal">
+    <div class="label">Skills &amp; Tools</div>
+    <div class="skill-cols" id="skillCols"></div>
+  </section>
 
-<section class="portfolio">
-	<h1>Some of my work</h1>
+  <section id="work">
+    <div class="label reveal">Featured Work</div>
+    <div class="featured" id="featured"></div>
+  </section>
 
-	<!--portfolio item 01 -->
+  <section id="more" class="reveal">
+    <div class="label">More on GitHub</div>
+    <div class="repo-tools">
+      <div class="filters" id="filters"></div>
+      <label class="toggle"><input type="checkbox" id="showCourse"> Include coursework</label>
+    </div>
+    <div class="repos" id="repos"><div class="empty">Loading repositories from GitHub…</div></div>
+  </section>
 
-	<figure class="port-item">
-		<img src="" alt="portfolio item">
-		<figcaption class="port-desc">
-			<p>Project title</p>
-			<a href="" class="button button-accent button-small">
-				</a>
-		</figcaption>
-	</figure>
-</section>
+  <section id="contact" class="contact reveal">
+    <div class="label">Contact</div>
+    <h2>Let's build something.</h2>
+    <p>Whether it's a role, a collaboration, or a quick question, my inbox is always open.</p>
+    <div class="cta">
+      <a class="btn btn-primary" id="emailBtn"></a>
+      <button class="btn btn-line" id="copyBtn">Copy email</button>
+    </div>
+    <div class="copied" id="copied">Copied to clipboard</div>
+    <div class="socials" id="socials"></div>
+  </section>
+</main>
 
-<!--portfolio item 02 -->
+<footer>© <span id="yr"></span> Zach Huff</footer>
 
-<figure class="port-item">
-	<img src="" alt="portfolio item">
-	<figcaption class="port-desc">
-		<p>Project title</p>
-		<a href="" class="button button-accent button-small">
-			</a>
-	</figcaption>
-</figure>
-</section>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview"><img alt=""></div>
 
-<!--portfolio item 03 -->
-
-<figure class="port-item">
-	<img src="" alt="portfolio item">
-	<figcaption class="port-desc">
-		<p>Project title</p>
-		<a href="" class="button button-accent button-small">
-			</a>
-	</figcaption>
-</figure>
-</section>
-
-<!--portfolio item 04 -->
-
-<figure class="port-item">
-	<img src="" alt="portfolio item">
-	<figcaption class="port-desc">
-		<p>Project title</p>
-		<a href="" class="button button-accent button-small">
-		</a>
-	</figcaption>
-</figure>
-</section>
-
-<footer>
-<p> add some here</p>
-
- <ul>
- 	<li><strong>dfsadsaf </strong> </li>
-	<li>dfsadsfa</li>
-	<li>dfsadafs</li>
-	<li>fdasadfs</li>
-	<li>dsfdasf</li>
-	<li>dasfadfs</li>
- </ul>
-
- <ul>
-	 <li><strong>dfsadsaf </strong> </li>
- <li>dfsadsfa</li>
- <li>dfsadafs</li>
- <li>fdasadfs</li>
- <li>dsfdasf</li>
- <li>dasfadfs</li>
- </ul>
-
- <ul>
-	 <li><strong>dfsadsaf </strong> </li>
- <li>dfsadsfa</li>
- <li>dfsadafs</li>
- <li>fdasadfs</li>
- <li>dsfdasf</li>
- <li>dasfadfs</li>
- </ul>
-
- <ul>
-	 <li><strong>dfsadsaf </strong> </li>
- <li>dfsadsfa</li>
- <li>dfsadafs</li>
- <li>fdasadfs</li>
- <li>dsfdasf</li>
- <li>dasfadfs</li>
- </ul>
-
-</footer>
-
+<script src="projects.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
