@@ -17,7 +17,7 @@ window.SITE = {
   role: "Cloud Engineer",
   headline: "I build and automate cloud infrastructure on AWS.",
   intro:
-    "I keep production servers on AWS up to date through automation, and I'm building toward cloud " +
+    "I keep production servers on AWS up to date with Systems Manager automation, and I'm building toward cloud " +
     "engineering with infrastructure as code, containers, and CI/CD. My software development background " +
     "means I understand what runs on the infrastructure, too.",
 
@@ -26,8 +26,8 @@ window.SITE = {
     "I started out building software: a native iOS app, full-stack web apps, and an AI-powered data " +
     "pipeline. Along the way I found the parts I enjoyed most were underneath the code: how it gets " +
     "deployed, how it scales, and how to automate the work so it's repeatable.",
-    "Today I work hands-on in AWS: every week I roll out updates to production servers using automation " +
-    "runbooks, where reliability and repeatability matter more than anything clever.",
+    "Today I work hands-on in AWS: every week I roll out updates to production servers using AWS Systems " +
+    "Manager Automation runbooks, where reliability and repeatability matter more than anything clever.",
     "Outside of work I'm going deeper: defining infrastructure in Terraform, containerizing with Docker " +
     "and Kubernetes, and wiring it together with CI/CD. I'm working toward my AWS Cloud Practitioner " +
     "certification first, with more to follow.",
@@ -48,8 +48,8 @@ window.SITE = {
   ],
 
   skills: {
-    "AWS":             ["S3 & CloudFront", "Lambda & API Gateway", "DynamoDB", "IAM", "Route 53 & ACM", "EC2 & VPC"],
-    "IaC & CI/CD":     ["Terraform", "Automation runbooks", "GitHub Actions", "OIDC federation", "Git"],
+    "AWS":             ["Systems Manager", "S3 & CloudFront", "Lambda & API Gateway", "DynamoDB", "IAM", "Route 53 & ACM", "EC2 & VPC"],
+    "IaC & CI/CD":     ["Terraform", "SSM Automation runbooks", "GitHub Actions", "OIDC federation", "Git"],
     "Containers & OS": ["Docker", "Kubernetes", "Linux", "Bash & Python scripting"],
     "Development":     ["Python", "JavaScript", "Java & C++", "SQL & NoSQL"],
   },
