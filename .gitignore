@@ -1,1 +1,10 @@
 .claude/
+__pycache__/
+
+# Terraform
+infra/.terraform/
+infra/build/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log

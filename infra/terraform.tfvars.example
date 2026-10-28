@@ -1,0 +1,11 @@
+# Copy to terraform.tfvars and adjust. All values are optional.
+
+# region      = "us-east-1"
+# project     = "zach-portfolio"
+
+# Custom domain (needs a Route 53 hosted zone for it in this AWS account)
+# domain_name = "zachhuff.com"
+# include_www = true
+
+# Set false if your AWS account already has a GitHub Actions OIDC provider
+# create_github_oidc_provider = true

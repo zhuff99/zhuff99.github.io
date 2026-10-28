@@ -14,6 +14,19 @@
   $("bio").innerHTML = S.bio.map((p) => `<p>${esc(p)}</p>`).join("");
   $("facts").innerHTML = S.facts.filter(([, v]) => v).map(([k, v]) =>
     `<div class="fact"><span class="k">${esc(k)}</span><span class="v${/open to/i.test(v) ? " ok" : ""}">${esc(v)}</span></div>`).join("");
+  if (S.certifications && S.certifications.length) {
+    $("certs").hidden = false;
+    $("certList").innerHTML = S.certifications.map((c) => {
+      const earned = /earned/i.test(c.status);
+      const inner = `
+        <div class="cert-top"><span class="cert-status${earned ? " earned" : ""}">${esc(c.status)}</span>${c.date ? `<span class="cert-date">${esc(c.date)}</span>` : ""}</div>
+        <h3>${esc(c.name)}</h3><div class="cert-issuer">${esc(c.issuer)}</div>`;
+      return c.link
+        ? `<a class="cert" href="${esc(c.link)}" target="_blank" rel="noopener">${inner}</a>`
+        : `<div class="cert">${inner}</div>`;
+    }).join("");
+  }
+
   $("skillCols").innerHTML = Object.entries(S.skills).map(([group, items]) =>
     `<div class="skill-col"><h3>${esc(group)}</h3><ul>${items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
 
@@ -37,10 +50,20 @@
   ].filter(([u]) => u).map(([u, t]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join("");
 
   /* ---------- featured ---------- */
+  const stack = (steps) => steps.map((l, i) =>
+    (i ? '<div class="arrow"></div>' : "") + `<div class="layer">${esc(l)}</div>`).join("");
+
   function media(p) {
+    if (p.diagram && p.diagram.lanes) {
+      return `<div class="feat-media"><div class="arch">
+        <div class="lanes">${p.diagram.lanes.map((lane) =>
+          `<div class="lane"><div class="lane-title">${esc(lane.title)}</div><div class="diagram">${stack(lane.steps)}</div></div>`).join("")}
+        </div>
+        ${p.diagram.footer ? `<div class="arch-footer">${esc(p.diagram.footer)}</div>` : ""}
+      </div></div>`;
+    }
     if (p.diagram) {
-      return `<div class="feat-media"><div class="diagram">${p.diagram.map((l, i) =>
-        (i ? '<div class="arrow"></div>' : "") + `<div class="layer">${esc(l)}</div>`).join("")}</div></div>`;
+      return `<div class="feat-media"><div class="diagram">${stack(p.diagram)}</div></div>`;
     }
     if (!p.images || !p.images.length) return "";
     const imgs = p.images.map((src) =>
@@ -54,7 +77,7 @@
     <article class="feat reveal">
       ${media(p)}
       <div class="feat-body">
-        <div class="feat-kicker">${esc(p.tagline)}</div>
+        <div class="feat-kicker">${esc(p.tagline)}${p.status ? `<span class="status">${esc(p.status)}</span>` : ""}</div>
         <h3>${esc(p.title)}</h3>
         <p>${esc(p.description)}</p>
         ${p.highlights ? `<ul>${p.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}
@@ -129,6 +152,14 @@
     .catch(() => {
       $("repos").innerHTML = `<div class="empty">Couldn't reach GitHub right now. <a href="https://github.com/${esc(S.github)}" target="_blank" rel="noopener">See all repositories ↗</a></div>`;
     });
+
+  /* ---------- visitor counter (AWS: API Gateway → Lambda → DynamoDB) ---------- */
+  if (S.counterApi) {
+    fetch(S.counterApi, { method: "POST" })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => { $("visitCount").textContent = Number(d.count).toLocaleString(); $("visits").hidden = false; })
+      .catch(() => {});
+  }
 
   /* ---------- theme ---------- */
   const root = document.documentElement;

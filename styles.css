@@ -75,6 +75,19 @@ h2{font-family:var(--serif);font-size:1.8rem;color:var(--ink);font-weight:400;li
 .fact .k{color:var(--muted)}.fact .v{color:var(--ink);font-weight:500;text-align:right}
 .fact .v.ok{color:var(--accent)}
 
+/* certifications */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;text-decoration:none;
+  box-shadow:var(--shadow);transition:.2s;border-left:3px solid var(--accent)}
+a.cert:hover{transform:translateY(-2px);border-color:var(--accent)}
+.cert-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.cert-status{font-size:.7rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.cert-status.earned{color:var(--accent);border-color:var(--accent)}
+.cert-date{font-size:.8rem;color:var(--muted)}
+.cert h3{font-size:1rem;color:var(--ink);font-weight:600;line-height:1.35;margin-bottom:4px}
+.cert-issuer{font-size:.85rem;color:var(--muted)}
+
 /* skills */
 .skill-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 @media(max-width:820px){.skill-cols{grid-template-columns:repeat(2,1fr)}}
@@ -106,6 +119,13 @@ h2{font-family:var(--serif);font-size:1.8rem;color:var(--ink);font-weight:400;li
 .diagram .layer:first-child{border-color:var(--accent);color:var(--accent)}
 .diagram .arrow{width:1px;height:22px;background:var(--muted);position:relative}
 .diagram .arrow::after{content:"";position:absolute;bottom:-1px;left:-4px;border:4px solid transparent;border-top-color:var(--muted)}
+.arch{width:100%;max-width:400px}
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.lane-title{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:10px;font-weight:600}
+.lane .layer{font-size:.76rem;padding:12px 8px}
+.arch-footer{margin-top:16px;padding:10px 12px;border:1px dashed var(--muted);border-radius:10px;text-align:center;
+  font-family:var(--mono);font-size:.72rem;color:var(--body)}
+.status{white-space:nowrap;display:inline-block;margin-left:10px;padding:2px 8px;border-radius:999px;border:1px solid var(--accent);font-size:.66rem;letter-spacing:1px;vertical-align:1px}
 .feat-body{padding:34px 34px 30px;display:flex;flex-direction:column}
 @media(max-width:600px){.feat-body{padding:26px 22px}}
 .feat-kicker{font-size:.76rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
